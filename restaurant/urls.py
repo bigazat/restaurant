@@ -6,6 +6,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     #url(r'^review/', include('review.urls')),
     url(r'^$', include('cuisine.urls')),
+    url(r'rest/', include('cuisine.urls')),
     # Examples:
     # url(r'^$', 'restaurant.views.home', name='home'),
     # url(r'^restaurant/', include('restaurant.foo.urls')),
