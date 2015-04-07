@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View all restaurants</title>
+</head>
+<body>
+<table>
+{% for o in rest %}
+    {{ o.name }}
+{% endfor %}
+</table>
+</body>
+</html>

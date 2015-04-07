@@ -1,9 +1,11 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
+import settings
 admin.autodiscover()
 
 urlpatterns = patterns('',
     #url(r'^review/', include('review.urls')),
+    url(r'^$', include('cuisine.urls')),
     # Examples:
     # url(r'^$', 'restaurant.views.home', name='home'),
     # url(r'^restaurant/', include('restaurant.foo.urls')),
