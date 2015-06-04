@@ -6,7 +6,7 @@
 <body>
 <table>
 {% for o in rest %}
-    {{ o.name }}
+    <a href="{% url 'cuisine.views.ViewRest' o.id %}">{{ o.name }}</a><br>
 {% endfor %}
 </table>
 </body>
