@@ -2,12 +2,73 @@
 <html>
 <head>
     <title>View all restaurants</title>
+    <link rel="stylesheet" href="static/css/normalize.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css">
+
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.9/js/jquery.dataTables.min.js"></script>
 </head>
 <body>
-<table>
-{% for o in rest %}
-    <a href="{% url 'cuisine.views.ViewRest' o.id %}">{{ o.name }}</a><br>
-{% endfor %}
-</table>
+<script>
+    $(document).ready(function () {
+        var table = $('#example').DataTable({
+        ajax: {
+        url: "http://192.168.1.99:8010/cuisine/restaurant/",
+        dataSrc: ""
+        },
+        columns: [
+            { "data": "name" },
+            { "data": "address"},
+            { "data": "phone"},
+            { "data": "cuisine"}
+    ]
+  });
+    });
+</script>
+{% verbatim %}
+
+<script type="text/x-handlebars">
+    <h2>Welcome to Ember.js</h2>
+
+    {{outlet}}
+
+
+</script>
+
+<script type="text/x-handlebars" data-template-name="index">
+    <ul>
+    {{#each model as |item|}}
+        <li>{{item.name}} - кухня {{ item.cuisine }}</li>
+    {{/each}}
+     </ul>
+</script>
+{% endverbatim %}
+
+<table id="example" class="display" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Cuisine</th>
+            </tr>
+        </thead>
+
+        <tfoot>
+            <tr>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Phone</th>
+                <th>Cuisine</th>
+            </tr>
+        </tfoot>
+    </table>
+
+
+<script src="static/js/ember-template-compiler.js"></script>
+<script src="static/js/ember.debug.js"></script>
+<script src="static/js/ember-data.js"></script>
+<script src="static/js/app/app.js"></script>
 </body>
 </html>

@@ -5,6 +5,7 @@ admin.autodiscover()
 
 urlpatterns = patterns(
     '',
+    url(r'^$', 'cuisine.views.view_html'),
     url(r'^cuisine/', include('cuisine.urls')),
     url(r'^admin/', include(admin.site.urls)),
 

@@ -2,9 +2,14 @@
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from django.shortcuts import render
 from models import Restaurant
 from serializers import RestSerializer
 # from django.shortcuts import render, get_object_or_404
+
+
+def view_html(request):
+    return render(request, 'base.html')
 
 
 @api_view(['GET', 'POST'])
